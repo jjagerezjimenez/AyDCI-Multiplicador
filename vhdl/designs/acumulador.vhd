@@ -1,4 +1,3 @@
-
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -39,5 +38,7 @@ begin
                 resultado_n(0) <= '0';
             end if;
         end process resultado_n_process;
+
+    product <= resultado(2*N downto 1);
 
 end solucion;

@@ -7,13 +7,27 @@ entity control is
     generic(
         constant N : natural := 1);
     port(
-        clk,load,sh in std_logic;
-        mplier : in std_logic_vector(N downto 0);
-        product: out std_logic_vector (((2*N) + 1) downto 0));
+        clk,st,m in std_logic;
+        sh,ad,done,load out std_logic);
 end  control;
 
 architecture solucion of control is
-    
-    begin
+signal counter : unsigned;    
+begin
+    sh <=  (not m) and (not (counter =  unsigned(N))) and (not load);
+    add <= m and (not (counter =  unsigned(N))) and (not load);
+    done <= (counter = unsigned(N));
+    load <= st;
 
-    end solucion;
+cntr: process (clk)
+    begin      
+    if 'rising_edge(clk) then 
+        if sh = '1'  then
+            counter = counter + 1;
+        elsif counter = unsigned(N) then
+            counter = 0;
+        end if;
+    end if;
+    end process cntr;
+
+end solucion;
