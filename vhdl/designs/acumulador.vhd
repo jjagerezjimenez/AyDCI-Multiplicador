@@ -11,7 +11,7 @@ entity acumulador_mplier is
     port(
         clk,load,sh,ad in std_logic;
         mplier : in std_logic_vector(N-1 downto 0);
-        adder : in std_logic_vector(N-1 downto 0);
+        mcand : in std_logic_vector(N-1 downto 0);
         product: out std_logic_vector (2*N-1 downto 0));
 end  acumulador_mplier;
 
@@ -32,7 +32,7 @@ begin
                 resultado_n(2*N downto N+1) <= mplier;
                 resultado_n(N downto 0) <=  (others => '0');
             elsif ad then 
-                resultado_n(N downto 0) <= adder;
+                resultado_n(N downto 0) <= mcand;
             elsif sh then
                 resultado_n(2*N downto 1) <= resultado(2*N-1 downto 0);
                 resultado_n(0) <= '0';
