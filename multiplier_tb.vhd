@@ -17,15 +17,14 @@ architecture testbench of multiplier_tb is
     signal done                 : std_logic;
     signal product              : std_logic_vector(7 downto 0);
     signal mplier, mcand, zero  : std_logic_vector(3 downto 0);
-    constant N : natural := 4;  -- cambio segun lo deseado
+    constant M : natural := 4;   
     
 
     begin
         zero <= (others => '0');
-        -- Instancia el componente
         COMPONENTE: multiplier
             generic map (
-                N => N
+                N => M
             )           
             port map (
                 clk => clk,
@@ -35,7 +34,7 @@ architecture testbench of multiplier_tb is
                 done => done,
                 product => product
             );
-clk <= not clk after 10 ns; --Reloj de 20ns 
+clk <= not clk after 10 ns; 
 prueba: process
     variable pass : boolean := true;
     begin
@@ -62,7 +61,7 @@ prueba: process
         st <= '0';
         wait until (done = '1') ;
         if (product /= std_logic_vector ((unsigned(zero & mcand)) * 
-                                        (unsigned(zero & mplier)))
+                                         (unsigned(zero & mplier)))
             ) then
             report  "ERROR en " & to_string(mcand)&" x " & to_string(mplier)
             severity error;

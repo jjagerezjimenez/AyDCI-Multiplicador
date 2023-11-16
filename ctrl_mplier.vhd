@@ -5,15 +5,15 @@ use IEEE.numeric_std.all;
 use ieee.math_real.all;
 library STD, WORK; use STD.STANDARD.all;
 
-entity control is
+entity control_mplier is
     generic(
         constant N : natural := 1);
     port(
         clk,st,m : in std_logic;
         sh,ad,done,load : out std_logic);
-end  control;
+end  control_mplier;
 
-architecture solucion of control is
+architecture solucion of control_mplier is
 signal counter : std_logic_vector(integer( ceil( sqrt(real(N)) ) ) downto 0);   
 begin
     process(all)

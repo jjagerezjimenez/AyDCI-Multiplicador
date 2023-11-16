@@ -1,7 +1,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-use work.multiplier_pkg.all;
 
 package multiplier_pkg is
     component multiplier is
@@ -29,7 +28,7 @@ entity multiplier is
 end multiplier;
 
 architecture solucion of multiplier is
-component control is
+component control_mplier is
     generic(
         constant N : natural := 1);
     port(
@@ -57,7 +56,7 @@ begin
                  ad      => ad,
                  sh      => sh,
                  load    => load);
-    ctrl : control
+    ctrl : control_mplier
     generic map(N => N)
     port map(clk => clk,
                  st => st,
