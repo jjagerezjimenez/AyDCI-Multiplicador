@@ -11,7 +11,7 @@ package multiplier_pkg is
             clk, st: in std_logic;
             mplier, mcand : in std_logic_vector(N-1 downto 0);
             done: out std_logic;
-            product: out std_logic_vector (((2*N)-1) downto 0));
+            product: out std_logic_vector (2*N-1 downto 0));
     end component;
 end package;
 

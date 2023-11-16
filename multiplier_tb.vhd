@@ -13,11 +13,10 @@ end entity;
 
 architecture testbench of multiplier_tb is
 
-    signal clk, st : std_logic := '0';
-    signal mplier, mcand : std_logic_vector(3 downto 0);
-    signal done : std_logic;
-    signal product : std_logic_vector(7 downto 0);
-    signal zero : std_logic_vector(3 downto 0);
+    signal clk, st              : std_logic := '0';
+    signal done                 : std_logic;
+    signal product              : std_logic_vector(7 downto 0);
+    signal mplier, mcand, zero  : std_logic_vector(3 downto 0);
     constant N : natural := 4;  -- cambio segun lo deseado
     
 
