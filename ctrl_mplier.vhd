@@ -33,8 +33,11 @@ begin
     load <= st;
     end process;
 
-cntr: process (clk)
+cntr: process (all)
     begin      
+    if load = '1' then 
+        counter <= (others => '0');
+    end if;
     if rising_edge(clk) then 
         if sh = '1'  then
             counter <= std_logic_vector(unsigned(counter) + 1);

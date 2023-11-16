@@ -38,7 +38,13 @@ begin
                 resultado_n(0) <= '0';
             end if;
         end process resultado_n_process;
-
-    product <= resultado(2*N downto 1);
+    process(all)
+    begin
+        if rising_edge(clk) then 
+            if not(ad or load or sh) then           
+                product <= resultado(2*N downto 1);
+            end if;
+        end if;
+    end process;
 
 end solucion;

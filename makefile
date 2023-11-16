@@ -1,4 +1,4 @@
-ops = --std=08 -fsynopsys
+ops = --std=08   -fsynopsys
 arch_cf = work-obj08.cf
 nombre = multiplier
 tb = $(nombre)_tb
@@ -8,13 +8,13 @@ all : test
 .PHONY: all test wav
 test: $(arch_cf) 
 	ghdl -m --std=08 $(tb)
-	ghdl -r --std=08 $(tb)
+	ghdl -r --std=08 $(tb) --stop-time=10000ns
 
 wav: $(arch_wav)
 	gtkwave -f $(arch_wav)
 
 $(arch_wav): $(arch_cf)
 	ghdl -m $(ops) $(tb)
-	ghdl -r $(ops) $(tb) $(wav_ops)
+	ghdl -r $(ops) $(tb) $(wav_ops) --stop-time=10000ns
 $(arch_cf): *.vhd
 	ghdl -i $(ops) *.vhd

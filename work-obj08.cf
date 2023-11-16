@@ -1,20 +1,19 @@
 v 4
-file . "ctrl_mplier.vhd" "3a1f9adb80b55d146f1e1a78aab24a69af040b22" "20231116083257.753":
-  entity control_mplier at 2( 2) + 0 on 13;
-  architecture solucion of control_mplier at 16( 332) + 0 on 14;
+file . "ctrl_mplier.vhd" "a7e17b2b849079b1cafc55745e9000285d18f933" "20231116094536.203":
+  entity control_mplier at 2( 2) + 0 on 17;
+  architecture solucion of control_mplier at 16( 332) + 0 on 18;
 file . "Ejemplo_tb.vhd" "81d1e56e311c8966bf64fe3f7a9c4a567e280a59" "20231116082542.674":
   entity multiplicador_binario_tb at 1( 0) + 0 on 4;
   architecture tb_arch of multiplicador_binario_tb at 9( 181) + 0 on 4;
 file . "Ejemplo.vhd" "10710523447614998a9031f90a817dfa95fd75df" "20231116082542.674":
   entity multiplicador_binario at 1( 0) + 0 on 4;
   architecture behavioral of multiplicador_binario at 15( 346) + 0 on 4;
-file . "acumulador.vhd" "1d1217dbbdee3f264b29c2ff5b581e8320c01049" "20231116083257.750":
-  entity acumulador_mplier at 1( 0) + 0 on 11;
-  architecture solucion of acumulador_mplier at 17( 416) + 0 on 12;
-file . "multiplier.vhd" "063f5a62c6e7ae44fa7e6f18e935b5d5c46f9d11" "20231116083257.754":
-  package multiplier_pkg at 1( 0) + 0 on 15;
-  entity multiplier at 17( 436) + 0 on 16;
-  architecture solucion of multiplier at 30( 768) + 0 on 17;
-file . "multiplier_tb.vhd" "80d2bd778b63b9c2174fdcd76ea987e920a2332a" "20231116083257.757":
-  entity multiplier_tb at 1( 0) + 0 on 18;
-  architecture testbench of multiplier_tb at 14( 251) + 0 on 19;
+file . "acumulador.vhd" "dc0ea973ac72e8231b0e2de8e532020d684f2234" "20231116094536.203":
+  entity acumulador_mplier at 1( 0) + 0 on 15;
+  architecture solucion of acumulador_mplier at 17( 416) + 0 on 16;
+file . "multiplier.vhd" "44ef7d3a3981c47524ffe142a62f298306431ac9" "20231116094536.203":
+  entity multiplier at 1( 0) + 0 on 13;
+  architecture solucion of multiplier at 15( 361) + 0 on 14;
+file . "multiplier_tb.vhd" "42a6b6bf7797502edc69845646665f845fce7f22" "20231116094536.203":
+  entity multiplier_tb at 1( 0) + 0 on 11;
+  architecture testbench of multiplier_tb at 13( 221) + 0 on 12;

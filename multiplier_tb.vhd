@@ -6,18 +6,25 @@ use IEEE.numeric_std.all;
 use std.env.finish;
 
 library work;
-use work.multiplier_pkg.ALL;
 
 entity multiplier_tb is
 end entity;
 
 architecture testbench of multiplier_tb is
-
+    component multiplier is
+        generic(
+            constant N : natural := 1);
+        port(
+            clk, st: in std_logic;
+            mplier, mcand : in std_logic_vector(N-1 downto 0);
+            done: out std_logic;
+            product: out std_logic_vector (((2*N)-1) downto 0));
+    end component;
     signal clk, st              : std_logic := '0';
     signal done                 : std_logic;
-    signal product              : std_logic_vector(7 downto 0);
-    signal mplier, mcand, zero  : std_logic_vector(3 downto 0);
-    constant M : natural := 4;   
+    signal product              : std_logic_vector(3 downto 0);
+    signal mplier, mcand, zero  : std_logic_vector(1 downto 0);
+    constant M : natural := 2;   
     
 
     begin
@@ -52,7 +59,7 @@ prueba: process
         pass:= false;
     end if;
     wait until clk = '1' and clk'event;
-    while true loop
+    while unsigned(mplier) < 3 loop
         mplier <= std_logic_vector(unsigned(mplier) + 1);        
     while true loop
         mcand <= std_logic_vector(unsigned(mcand) + 1);
@@ -63,7 +70,7 @@ prueba: process
         if (product /= std_logic_vector ((unsigned(zero & mcand)) * 
                                          (unsigned(zero & mplier)))
             ) then
-            report  "ERROR en " & to_string(mcand)&" x " & to_string(mplier)
+            report  "ERROR en " & to_string(mcand)&" x " & to_string(mplier)&" Se obtuvo " & to_string(product)
             severity error;
             pass:= false;
             exit;
@@ -83,7 +90,6 @@ prueba: process
         report "[FAIL]" severity failure;
     end if;
     finish;
-    std.env.stop;
     end process prueba;
 
 end architecture testbench;
