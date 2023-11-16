@@ -20,11 +20,12 @@ architecture testbench of multiplier_tb is
             done: out std_logic;
             product: out std_logic_vector (((2*N)-1) downto 0));
     end component;
+    constant M : natural := 2;   
     signal clk, st              : std_logic := '0';
     signal done                 : std_logic;
-    signal product              : std_logic_vector(3 downto 0);
-    signal mplier, mcand, zero  : std_logic_vector(1 downto 0);
-    constant M : natural := 2;   
+    signal product              : std_logic_vector(2*M-1 downto 0);
+    signal mplier, mcand, zero  : std_logic_vector(M-1 downto 0);
+    signal numeros              : std_logic_vector(2*M-1 downto 0);
     
 
     begin
@@ -42,11 +43,13 @@ architecture testbench of multiplier_tb is
                 product => product
             );
 clk <= not clk after 10 ns; 
+mcand <= numeros(2*M-1 downto M);
+mplier <= numeros(M-1 downto 0);
+
 prueba: process
     variable pass : boolean := true;
     begin
-    mplier <= (others=>'0');
-    mcand  <= (others=>'0');
+    numeros <= (others => '0');
     st <= '1';
     wait until clk = '1' and clk'event;
     st <= '0';
@@ -54,15 +57,13 @@ prueba: process
     if (product /= std_logic_vector ((unsigned(zero & mcand)) * 
                                      (unsigned(zero & mplier)))
         ) then
-        report  "ERROR en 0x0"
+        report  "ERROR en " & to_string(mcand)&" x " & to_string(mplier)&" Se obtuvo " & to_string(product)
         severity error;
         pass:= false;
     end if;
     wait until clk = '1' and clk'event;
-    while unsigned(mplier) < 3 loop
-        mplier <= std_logic_vector(unsigned(mplier) + 1);        
-    while true loop
-        mcand <= std_logic_vector(unsigned(mcand) + 1);
+    while (unsigned(numeros) + 1) /= 0   loop
+        numeros <= std_logic_vector(unsigned(numeros) + 1);
         st <= '1';
         wait until clk = '1' and clk'event;
         st <= '0';
@@ -76,13 +77,6 @@ prueba: process
             exit;
         end if;
         wait until clk = '1' and clk'event;
-        if unsigned(mcand) = 0 then
-            exit;
-        end if;
-        end loop;    
-        if unsigned(mplier) = 0  then
-            exit;
-        end if;
     end loop;
     if pass then
         report "[PASS]";
