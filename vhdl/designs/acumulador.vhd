@@ -32,7 +32,8 @@ begin
                 resultado_n(2*N downto N+1) <= mplier;
                 resultado_n(N downto 0) <=  (others => '0');
             elsif ad then 
-                resultado_n(N downto 0) <= mcand;
+                resultado_n(N downto 0) <= std_logic_vector(  unsigned('0' & mcand)  
+                                                            + unsigned('0' &resultado_n(N downto 1)));
             elsif sh then
                 resultado_n(2*N downto 1) <= resultado(2*N-1 downto 0);
                 resultado_n(0) <= '0';
