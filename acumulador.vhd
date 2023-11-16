@@ -18,7 +18,7 @@ end  acumulador_mplier;
 architecture solucion of acumulador_mplier is
 signal  resultado, resultado_n, registro_resultado:  std_logic_vector (2*N downto 0);
 signal done : std_logic;
- 
+
 begin
     acc_process: process(clk)
     begin
@@ -50,7 +50,7 @@ begin
                 if done = '1' then    
                     registro_resultado <= resultado;
                 end if;
-                product <= resultado(2*N downto 1);
+                product <= registro_resultado(2*N downto 1);
             end if;
         end if;
     end process;
