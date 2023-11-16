@@ -56,6 +56,7 @@ begin
                 done <= '0';
                 product <= resultado(2*N downto 1);
             end if;
+            report "done = " & to_string(done) severity note;--test poara done, quitar despoues
         end if;
     end process;
 
