@@ -9,6 +9,7 @@ entity acumulador_mplier is
         constant N : natural := 1);
     port(
         clk,load,sh,ad : in std_logic;
+        m           : out std_logic;
         mplier : in std_logic_vector(N-1 downto 0);
         mcand : in std_logic_vector(N-1 downto 0);
         product: out std_logic_vector (2*N-1 downto 0));
@@ -28,23 +29,26 @@ begin
         begin
             resultado_n <= resultado;
             if load then
-                resultado_n(2*N downto N+1) <= mplier;
-                resultado_n(N downto 0) <=  (others => '0');
+                resultado_n(2*N downto N) <= (others => '0');
+                resultado_n(N-1 downto 0) <=  mplier;
             elsif ad then 
-                resultado_n(N downto 0) <= std_logic_vector(  unsigned('0' & mcand)  
-                                                            + unsigned('0' & resultado_n(N downto 1)));
+                resultado_n(2*N downto N) <= std_logic_vector(  unsigned('0' & mcand)  
+                                                            + unsigned('0' & resultado(2*N downto N+1)));
             elsif sh then
-                resultado_n(2*N downto 1) <= resultado(2*N-1 downto 0);
-                resultado_n(0) <= '0';
+                resultado_n(2*N-1 downto 0) <= resultado(2*N downto 1);
+                resultado_n(2*N) <= '0';
             end if;
         end process resultado_n_process;
     process(all)
     begin
+        producto <= product;
         if rising_edge(clk) then 
             if not(ad or load or sh) then           
                 product <= resultado(2*N downto 1);
             end if;
         end if;
     end process;
+
+    m <= resultado (0);
 
 end solucion;

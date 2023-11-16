@@ -25,11 +25,12 @@ component acumulador_mplier is
         constant N : natural := 1);
     port(
         clk,load,sh,ad : in std_logic;
+        m           : out std_logic;        
         mplier : in std_logic_vector(N-1 downto 0);
         mcand : in std_logic_vector(N-1 downto 0);
         product: out std_logic_vector (2*N-1 downto 0));
 end  component;  
-signal ad,sh,load : std_logic;
+signal ad,sh,load,m : std_logic;
     
 begin
     acc : acumulador_mplier
@@ -40,7 +41,8 @@ begin
                  clk     => clk,
                  ad      => ad,
                  sh      => sh,
-                 load    => load);
+                 load    => load,
+                 m       => m);
     ctrl : control_mplier
     generic map(N => N)
     port map(clk => clk,
@@ -49,5 +51,5 @@ begin
                  done => done,
                  load => load,
                  sh => sh,
-                 m => product(2*N-1));
+                 m  => m);
 end solucion;

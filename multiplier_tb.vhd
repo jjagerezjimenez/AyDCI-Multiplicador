@@ -20,16 +20,15 @@ architecture testbench of multiplier_tb is
             done: out std_logic;
             product: out std_logic_vector (((2*N)-1) downto 0));
     end component;
-    constant M : natural := 2;   
+    constant M : natural := 4;   
     signal clk, st              : std_logic := '0';
     signal done                 : std_logic;
     signal product              : std_logic_vector(2*M-1 downto 0);
-    signal mplier, mcand, zero  : std_logic_vector(M-1 downto 0);
+    signal mplier, mcand        : std_logic_vector(M-1 downto 0);
     signal numeros              : std_logic_vector(2*M-1 downto 0);
     
 
     begin
-        zero <= (others => '0');
         COMPONENTE: multiplier
             generic map (
                 N => M
@@ -54,10 +53,10 @@ prueba: process
     wait until clk = '1' and clk'event;
     st <= '0';
     wait until (done = '1') ;
-    if (product /= std_logic_vector ((unsigned(zero & mcand)) * 
-                                     (unsigned(zero & mplier)))
+    if (product /= std_logic_vector ((unsigned(mcand)) * 
+                                     (unsigned(mplier)))
         ) then
-        report  "ERROR en " & to_string(mcand)&" x " & to_string(mplier)&" Se obtuvo " & to_string(product)
+        report  "ERROR en " & to_string(mcand)&" x " & to_string(mplier)&" Se obtuvo " & to_string(product) & " Se esperaba " & to_string(((unsigned(mcand)) * (unsigned(mplier))))
         severity error;
         pass:= false;
     end if;
@@ -68,10 +67,10 @@ prueba: process
         wait until clk = '1' and clk'event;
         st <= '0';
         wait until (done = '1') ;
-        if (product /= std_logic_vector ((unsigned(zero & mcand)) * 
-                                         (unsigned(zero & mplier)))
+        if (product /= std_logic_vector ((unsigned(mcand)) * 
+                                         (unsigned(mplier)))
             ) then
-            report  "ERROR en " & to_string(mcand)&" x " & to_string(mplier)&" Se obtuvo " & to_string(product)
+            report  "ERROR en " & to_string(mcand)&" x " & to_string(mplier)&" Se obtuvo " & to_string(product) & " Se esperaba " & to_string(((unsigned(mcand)) * (unsigned(mplier))))
             severity error;
             pass:= false;
             exit;

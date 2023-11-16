@@ -14,19 +14,20 @@ entity control_mplier is
 end  control_mplier;
 
 architecture solucion of control_mplier is
+    signal full : std_logic;
 signal counter : std_logic_vector(integer( ceil( sqrt(real(N)) ) ) downto 0);   
 begin
     process(all)
     begin
-    sh <=  '1' when (not m) and not (done or load) else '0';
+    sh <=  '1' when not (full or load or ad) else '0';
     end process;
     process(all)
     begin
-    ad <= '1' when m and not (done or load) else '0';
-    end process;
+    ad <= not ad when m and not (full or load) else '0';
+    end process; 
     process(all)
     begin
-    done <= '1' when (counter = std_logic_vector(to_unsigned(N, counter'length))) else '0';
+    done <= '1' when not (sh or ad or load) else '0';
     end process;
     process(all)
     begin    
@@ -35,14 +36,13 @@ begin
 
 cntr: process (all)
     begin      
-    if load = '1' then 
-        counter <= (others => '0');
-    end if;
     if rising_edge(clk) then 
-        if sh = '1'  then
-            counter <= std_logic_vector(unsigned(counter) + 1);
-        elsif counter = std_logic_vector(to_unsigned(N, counter'length)) then
+        if counter = std_logic_vector(to_unsigned(N, counter'length)) or load = '1' then
             counter <= (others => '0');
+            full <= not load;
+        elsif sh = '1'  then
+            counter <= std_logic_vector(unsigned(counter) + 1);
+            full <= '0';
         end if;
     end if;
     end process cntr;
