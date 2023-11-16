@@ -8,7 +8,7 @@ entity acumulador_mplier is
     generic(
         constant N : natural := 1);
     port(
-        clk,load,sh,ad in std_logic;
+        clk,load,sh,ad : in std_logic;
         mplier : in std_logic_vector(N-1 downto 0);
         mcand : in std_logic_vector(N-1 downto 0);
         product: out std_logic_vector (2*N-1 downto 0));
@@ -19,7 +19,7 @@ signal  resultado, resultado_n:  std_logic_vector (2*N downto 0);
 begin
     acc_process: process(clk)
     begin
-        if 'rising_edge(clk) then
+        if rising_edge(clk) then
             resultado <= resultado_n;
         end if;
     end process acc_process;
