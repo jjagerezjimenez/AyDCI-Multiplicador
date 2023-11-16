@@ -16,8 +16,8 @@ entity acumulador_mplier is
 end  acumulador_mplier;
 
 architecture solucion of acumulador_mplier is
-signal  resultado, resultado_n, registro_resultado:  std_logic_vector (2*N downto 0);
-signal done : std_logic;
+signal  resultado, resultado_n:  std_logic_vector (2*N downto 0);
+signal done : std_logic := '0';
 
 begin
     acc_process: process(clk)
@@ -41,20 +41,24 @@ begin
                 resultado_n(2*N) <= '0';
             end if;
         end process resultado_n_process;
-    process(all)
+
+    process(clk)
     begin
         --producto <= product;
-        m <= resultado (0);
+        
         if rising_edge(clk) then 
-            if not(ad or load or sh) then   
-                if done = '1' then    
-                    registro_resultado <= resultado;
+        m <= resultado (0);
+            if done = '0' then
+                if ad or load or sh then
+                    done <= '1'; 
                 end if;
-                product <= registro_resultado(2*N downto 1);
+            else
+                done <= '0';
+                product <= resultado(2*N downto 1);
             end if;
         end if;
     end process;
 
-   -- m <= resultado (0);
+   --m <= resultado (0);
 
 end solucion;

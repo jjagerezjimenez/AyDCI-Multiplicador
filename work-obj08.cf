@@ -1,11 +1,11 @@
 v 4
-file . "multiplier_tb.vhd" "14116bbf9b753a8c61d8624f8857d067d3520541" "20231116151305.743":
+file . "multiplier_tb.vhd" "14116bbf9b753a8c61d8624f8857d067d3520541" "20231116203000.923":
   entity multiplier_tb at 1( 0) + 0 on 11;
   architecture testbench of multiplier_tb at 13( 209) + 0 on 12;
-file . "multiplier.vhd" "1302485fb313bf455567854b485ce7788fe7dc2f" "20231116151305.744":
+file . "multiplier.vhd" "1302485fb313bf455567854b485ce7788fe7dc2f" "20231116203000.923":
   entity multiplier at 1( 0) + 0 on 13;
   architecture solucion of multiplier at 15( 347) + 0 on 14;
-file . "acumulador.vhd" "693aa2b8e99109b2b88f68dd919f89238470e457" "20231116151305.744":
+file . "acumulador.vhd" "a312ac6da15bf9d4d7b22bf8e8d09f31152820c9" "20231116203000.923":
   entity acumulador_mplier at 1( 0) + 0 on 15;
   architecture solucion of acumulador_mplier at 18( 437) + 0 on 16;
 file . "Ejemplo.vhd" "10710523447614998a9031f90a817dfa95fd75df" "20231116082542.674":
@@ -14,6 +14,6 @@ file . "Ejemplo.vhd" "10710523447614998a9031f90a817dfa95fd75df" "20231116082542.
 file . "Ejemplo_tb.vhd" "81d1e56e311c8966bf64fe3f7a9c4a567e280a59" "20231116082542.674":
   entity multiplicador_binario_tb at 1( 0) + 0 on 4;
   architecture tb_arch of multiplicador_binario_tb at 9( 181) + 0 on 4;
-file . "ctrl_mplier.vhd" "baa853888b19e9178041b1f4170afda8c930a191" "20231116151305.744":
+file . "ctrl_mplier.vhd" "baa853888b19e9178041b1f4170afda8c930a191" "20231116203000.923":
   entity control_mplier at 2( 1) + 0 on 17;
   architecture solucion of control_mplier at 16( 317) + 0 on 18;
