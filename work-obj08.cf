@@ -1,19 +1,19 @@
 v 4
-file . "multiplier_tb.vhd" "8a6a622d5a46741d3c549f7ebfc61829fcfbde23" "20231117044022.197":
-  entity multiplier_tb at 1( 0) + 0 on 11;
-  architecture testbench of multiplier_tb at 13( 221) + 0 on 12;
-file . "multiplier.vhd" "f252c548a14d54975306876c64515736550fdf59" "20231117044022.197":
-  entity multiplier at 1( 0) + 0 on 13;
-  architecture solucion of multiplier at 15( 361) + 0 on 14;
-file . "acumulador.vhd" "59961b0712b7dc5e517bad8abce3c50f8e4e5ddb" "20231117044022.197":
-  entity acumulador_mplier at 1( 0) + 0 on 15;
-  architecture solucion of acumulador_mplier at 18( 454) + 0 on 16;
-file . "Ejemplo.vhd" "10710523447614998a9031f90a817dfa95fd75df" "20231116082542.674":
-  entity multiplicador_binario at 1( 0) + 0 on 4;
-  architecture behavioral of multiplicador_binario at 15( 346) + 0 on 4;
+file . "ctrl_mplier.vhd" "462e7893d8f3ef16700f2cb6685e841f6e4fda87" "20231117112723.124":
+  entity control_mplier at 2( 1) + 0 on 17;
+  architecture solucion of control_mplier at 16( 317) + 0 on 18;
 file . "Ejemplo_tb.vhd" "81d1e56e311c8966bf64fe3f7a9c4a567e280a59" "20231116082542.674":
   entity multiplicador_binario_tb at 1( 0) + 0 on 4;
   architecture tb_arch of multiplicador_binario_tb at 9( 181) + 0 on 4;
-file . "ctrl_mplier.vhd" "bec52ac9fe5c89b593fbdc281393304c88098b86" "20231117044022.197":
-  entity control_mplier at 2( 2) + 0 on 17;
-  architecture solucion of control_mplier at 16( 332) + 0 on 18;
+file . "Ejemplo.vhd" "10710523447614998a9031f90a817dfa95fd75df" "20231116082542.674":
+  entity multiplicador_binario at 1( 0) + 0 on 4;
+  architecture behavioral of multiplicador_binario at 15( 346) + 0 on 4;
+file . "acumulador.vhd" "e4ad03b54591ae8f4ea0a548afe238ea0edcf2de" "20231117112723.124":
+  entity acumulador_mplier at 1( 0) + 0 on 15;
+  architecture solucion of acumulador_mplier at 18( 437) + 0 on 16;
+file . "multiplier.vhd" "1302485fb313bf455567854b485ce7788fe7dc2f" "20231117112723.124":
+  entity multiplier at 1( 0) + 0 on 13;
+  architecture solucion of multiplier at 15( 347) + 0 on 14;
+file . "multiplier_tb.vhd" "b04cfd2d226bf3d2607f593f62640ed4928efe84" "20231117112723.124":
+  entity multiplier_tb at 1( 0) + 0 on 11;
+  architecture testbench of multiplier_tb at 13( 209) + 0 on 12;

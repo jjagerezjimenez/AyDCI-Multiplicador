@@ -35,7 +35,7 @@ begin
                 resultado_n(N-1 downto 0) <=  mplier;
             elsif ad then 
                 resultado_n(2*N downto N) <= std_logic_vector(  unsigned('0' & mcand)  
-                                                            + unsigned('0' & resultado((2*N)-1 downto N+1)));
+                                                            + unsigned('0' & resultado((2*N)-1 downto N)));
             elsif sh then
                 resultado_n(2*N-1 downto 0) <= resultado(2*N downto 1);
                 resultado_n(2*N) <= '0';
@@ -43,7 +43,7 @@ begin
         end process resultado_n_process;
 
     m <= resultado (0);
-    product <= resultado(2*N downto 1);
+    product <= resultado((2*N)-1 downto 0);--2n-1 0
 --    process(clk)
 --    begin
 --        if rising_edge(clk) then 
