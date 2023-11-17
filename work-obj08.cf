@@ -1,19 +1,19 @@
 v 4
-file . "ctrl_mplier.vhd" "87fe53c7c27f9a8f1189ee7bd4e79bf6ce1abdb1" "20231116112017.578":
-  entity control_mplier at 2( 2) + 0 on 17;
-  architecture solucion of control_mplier at 16( 332) + 0 on 18;
-file . "Ejemplo_tb.vhd" "81d1e56e311c8966bf64fe3f7a9c4a567e280a59" "20231116082542.674":
-  entity multiplicador_binario_tb at 1( 0) + 0 on 4;
-  architecture tb_arch of multiplicador_binario_tb at 9( 181) + 0 on 4;
+file . "multiplier_tb.vhd" "70dfead49d45398596c0aaff0e0e73d787435e30" "20231116113437.756":
+  entity multiplier_tb at 1( 0) + 0 on 11;
+  architecture testbench of multiplier_tb at 13( 221) + 0 on 12;
+file . "multiplier.vhd" "f252c548a14d54975306876c64515736550fdf59" "20231116113437.757":
+  entity multiplier at 1( 0) + 0 on 13;
+  architecture solucion of multiplier at 15( 361) + 0 on 14;
+file . "acumulador.vhd" "46eb184e59b7f9ac7312737dc827487c0a71d921" "20231116113437.757":
+  entity acumulador_mplier at 1( 0) + 0 on 15;
+  architecture solucion of acumulador_mplier at 18( 454) + 0 on 16;
 file . "Ejemplo.vhd" "10710523447614998a9031f90a817dfa95fd75df" "20231116082542.674":
   entity multiplicador_binario at 1( 0) + 0 on 4;
   architecture behavioral of multiplicador_binario at 15( 346) + 0 on 4;
-file . "acumulador.vhd" "46eb184e59b7f9ac7312737dc827487c0a71d921" "20231116112017.578":
-  entity acumulador_mplier at 1( 0) + 0 on 15;
-  architecture solucion of acumulador_mplier at 18( 454) + 0 on 16;
-file . "multiplier.vhd" "f252c548a14d54975306876c64515736550fdf59" "20231116112017.578":
-  entity multiplier at 1( 0) + 0 on 13;
-  architecture solucion of multiplier at 15( 361) + 0 on 14;
-file . "multiplier_tb.vhd" "18eba9b470a696fa24e0432d6866cbcd9e6928b9" "20231116112017.578":
-  entity multiplier_tb at 1( 0) + 0 on 11;
-  architecture testbench of multiplier_tb at 13( 221) + 0 on 12;
+file . "Ejemplo_tb.vhd" "81d1e56e311c8966bf64fe3f7a9c4a567e280a59" "20231116082542.674":
+  entity multiplicador_binario_tb at 1( 0) + 0 on 4;
+  architecture tb_arch of multiplicador_binario_tb at 9( 181) + 0 on 4;
+file . "ctrl_mplier.vhd" "87fe53c7c27f9a8f1189ee7bd4e79bf6ce1abdb1" "20231116113437.757":
+  entity control_mplier at 2( 2) + 0 on 17;
+  architecture solucion of control_mplier at 16( 332) + 0 on 18;

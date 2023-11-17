@@ -53,6 +53,7 @@ prueba: process
     wait until clk = '1' and clk'event;
     st <= '0';
     wait until (done = '1') ;
+    wait until clk = '1' and clk'event;
     if (product /= std_logic_vector ((unsigned(mcand)) * 
                                      (unsigned(mplier)))
         ) then
@@ -67,6 +68,7 @@ prueba: process
         wait until clk = '1' and clk'event;
         st <= '0';
         wait until (done = '1') ;
+        wait until clk = '1' and clk'event;
         if (product /= std_logic_vector ((unsigned(mcand)) * 
                                          (unsigned(mplier)))
             ) then

@@ -41,7 +41,6 @@ begin
         end process resultado_n_process;
     process(all)
     begin
-        producto <= product;
         if rising_edge(clk) then 
             if not(ad or load or sh) then           
                 product <= resultado(2*N downto 1);
