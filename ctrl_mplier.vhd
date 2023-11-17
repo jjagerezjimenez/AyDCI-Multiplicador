@@ -15,23 +15,30 @@ end  control_mplier;
 
 architecture solucion of control_mplier is
     signal full : std_logic;
-signal counter : std_logic_vector(integer( ceil( sqrt(real(N)) ) ) downto 0);   
+    signal counter : std_logic_vector(integer( ceil( sqrt(real(N)) ) ) downto 0);   
 begin
     process(all)
     begin
-    sh <=  '1' when not (full or load or ad) else '0';
+        sh <=  '1' when not (full or load or ad) else '0';
     end process;
+
+    process (all)
+    begin
+        if rising_edge(clk) then
+            ad <= not ad when m and not (full or load);
+        else
+            ad <= '0';
+        end if;
+    end process;
+
     process(all)
     begin
-    ad <= not ad when m and not (full or load) else '0';
-    end process; 
-    process(all)
-    begin
-    done <= '1' when not (sh or ad or load) else '0';
+        done <= '1' when not (sh or ad or load) else '0';
     end process;
+
     process(all)
     begin    
-    load <= st;
+        load <= st;
     end process;
 
 cntr: process (all)
