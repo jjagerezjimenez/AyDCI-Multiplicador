@@ -22,7 +22,7 @@ begin
         sh <=  '1' when not (full or load or ad) else '0';
     end process;
 
-    process (all)
+    process (clk)
     begin
         if rising_edge(clk) then
             ad <= not ad when m and not (full or load);
@@ -33,7 +33,7 @@ begin
 
     process(all)
     begin
-        done <= '1' when not (sh or ad or load) else '0';
+        done <= '1' when not (sh or ad or load)  else '0';
     end process;
 
     process(all)

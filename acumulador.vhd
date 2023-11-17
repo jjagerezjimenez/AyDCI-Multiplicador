@@ -42,21 +42,22 @@ begin
             end if;
         end process resultado_n_process;
 
-    process(clk)
-    begin
-        if rising_edge(clk) then 
-        m <= resultado (0);
-            if done = '0' then
-                if ad or load or sh then
-                    done <= '1'; 
-                end if;
-            else
-                done <= '0';
-                product <= resultado(2*N downto 1);
-            end if;
-            report "done = " & to_string(done) severity note;--test poara done, quitar despoues
-        end if;
-    end process;
+    m <= resultado (0);
+    product <= resultado(2*N downto 1);
+--    process(clk)
+--    begin
+--        if rising_edge(clk) then 
+--            if done = '0' then
+--                if ad or load or sh then
+--                    done <= '1'; 
+--                end if;
+--            else
+--                done <= '0';
+--                product <= resultado(2*N downto 1);
+--            end if;
+--            --report "done = " & to_string(done) severity note;--test poara done, quitar despoues
+--        end if;
+--    end process;
 
    --m <= resultado (0);
 

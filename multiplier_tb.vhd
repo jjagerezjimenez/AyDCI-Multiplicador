@@ -49,35 +49,21 @@ prueba: process
     variable pass : boolean := true;
     begin
     numeros <= (others => '0');
-    st <= '1';
-    wait until clk = '1' and clk'event;
-    st <= '0';
-    wait until (done = '1') ;
-    wait until clk = '1' and clk'event;
-    if (product /= std_logic_vector ((unsigned(mcand)) * 
-                                     (unsigned(mplier)))
-        ) then
-        report  "ERROR en " & to_string(mcand)&" x " & to_string(mplier)&" Se obtuvo " & to_string(product) & " Se esperaba " & to_string(((unsigned(mcand)) * (unsigned(mplier))))
-        severity error;
-        pass:= false;
-    end if;
-    wait until clk = '1' and clk'event;
     while (unsigned(numeros) + 1) /= 0   loop
-        numeros <= std_logic_vector(unsigned(numeros) + 1);
         st <= '1';
         wait until clk = '1' and clk'event;
         st <= '0';
-        wait until (done = '1') ;
-        wait until clk = '1' and clk'event;
+        --wait for 100 ns;
+        wait until done = '1' ;
         if (product /= std_logic_vector ((unsigned(mcand)) * 
                                          (unsigned(mplier)))
             ) then
             report  "ERROR en " & to_string(mcand)&" x " & to_string(mplier)&" Se obtuvo " & to_string(product) & " Se esperaba " & to_string(((unsigned(mcand)) * (unsigned(mplier))))
             severity error;
             pass:= false;
-            exit;
+            --exit;
         end if;
-        wait until clk = '1' and clk'event;
+        numeros <= std_logic_vector(unsigned(numeros) + 1);
     end loop;
     if pass then
         report "[PASS]";
