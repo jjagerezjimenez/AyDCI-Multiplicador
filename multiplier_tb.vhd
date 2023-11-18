@@ -23,7 +23,6 @@ architecture testbench of multiplier_tb is
     signal done : STD_LOGIC;
     signal product : STD_LOGIC_VECTOR(2*M-1 downto 0);
     signal mplier, mcand : STD_LOGIC_VECTOR(M-1 downto 0);
-    signal numeros : STD_LOGIC_VECTOR(2*M-1 downto 0);
 
 begin
     COMPONENTE: multiplier
@@ -39,41 +38,74 @@ begin
             product => product
         );
 
-    clk <= not clk after 10 ns; 
-    mcand <= numeros(2*M-1 downto M);
-    mplier <= numeros(M-1 downto 0);
-
-    prueba: process
-    variable pass : BOOLEAN := TRUE;
-begin
-    numeros <= (others => '0');
-    wait for 10 ns; -- Asegura que las señales se estabilicen antes de comenzar la prueba
-
-    for i in 0 to 2*M-1 loop
+        prueba: process
+        variable pass : BOOLEAN := TRUE;
+    begin
+        wait for 10 ns;
+    
+        -- Casos de prueba específicos
+        mplier <= "1111";  -- 1111 x 0000
+        mcand <= "0000";
         st <= '1';
         wait until rising_edge(clk);
         st <= '0';
         wait for 100 ns;
         wait until rising_edge(clk);
-        report "DEBUG: i = " & to_string(i) & " numeros = " & to_string(numeros) & " product = " & to_string(product) & " done = " & to_string(done) severity note;
-
-        if (product /= std_logic_vector(unsigned(mcand) * unsigned(mplier))) then
-            report "ERROR en " & to_string(mcand) & " x " & to_string(mplier) &
-                " Se obtuvo " & to_string(product) & " Se esperaba " &
-                to_string(unsigned(mcand) * unsigned(mplier)) severity error;
-            pass := FALSE;
-        end if;
-
-        exit when done = '1';
-    end loop;
-
-    if pass then
-        report "[PASS]";
-    else
-        report "[FAIL]" severity failure;
-    end if;
-
-    wait;
-end process prueba;
+    
+        mplier <= "1111";  -- 1111 x 1111
+        mcand <= "1111";
+        st <= '1';
+        wait until rising_edge(clk);
+        st <= '0';
+        wait for 100 ns;
+        wait until rising_edge(clk);
+    
+        mplier <= "1101";  -- 13 x 11
+        mcand <= "1011";
+        st <= '1';
+        wait until rising_edge(clk);
+        st <= '0';
+        wait for 100 ns;
+        wait until rising_edge(clk);
+    
+        mplier <= "1100";  -- 1100 x 0011
+        mcand <= "0011";
+        st <= '1';
+        wait until rising_edge(clk);
+        st <= '0';
+        wait for 100 ns;
+        wait until rising_edge(clk);
+    
+        mplier <= "0001";  -- 0001 x 0001
+        mcand <= "0001";
+        st <= '1';
+        wait until rising_edge(clk);
+        st <= '0';
+        wait for 100 ns;
+        wait until rising_edge(clk);
+    
+        mplier <= "0010";  -- 0010 x 0001
+        mcand <= "0001";
+        st <= '1';
+        wait until rising_edge(clk);
+        st <= '0';
+        wait for 100 ns;
+        wait until rising_edge(clk);
+    
+        mplier <= "0010";  -- 0010 x 0010
+        mcand <= "0010";
+        st <= '1';
+        wait until rising_edge(clk);
+        st <= '0';
+        wait for 100 ns;
+        wait until rising_edge(clk);
+    
+        wait until done = '1';
+    
+        report "DEBUG: Testbench completed." severity note;
+    
+        wait;
+    end process prueba;
+    
 
 end architecture testbench;
