@@ -8,7 +8,7 @@ end entity;
 architecture testbench of multiplier_tb is
     component multiplier is
         generic (
-            constant N : natural := 1
+            constant N : natural := 4
         );
         port (
             clk, st : in STD_LOGIC;
@@ -76,7 +76,4 @@ begin
     wait;
 end process prueba;
 
-
-
 end architecture testbench;
-

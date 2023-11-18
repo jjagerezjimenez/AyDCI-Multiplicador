@@ -4,7 +4,7 @@ use IEEE.numeric_std.all;
 
 entity control_mplier is
     generic (
-        constant N : natural := 1
+        constant N : natural := 4
     );
     port (
         clk, st, m : in std_logic;
@@ -16,6 +16,7 @@ architecture solucion of control_mplier is
     signal full : std_logic;
 
 begin
+    -- Lógica de entrada
     process(clk)
     begin
         if rising_edge(clk) then
@@ -27,6 +28,7 @@ begin
         end if;
     end process;
 
+    -- Lógica de salida
     done <= full;
     load <= not full;
     sh <= full;
