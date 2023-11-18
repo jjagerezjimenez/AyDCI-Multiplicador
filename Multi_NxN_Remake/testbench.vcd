@@ -1,0 +1,42 @@
+$date
+  Sat Nov 18 00:18:23 2023
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module numeric_std $end
+$upscope $end
+$scope module tb_mult_sec_nxn $end
+$var reg 1 ! clk $end
+$var reg 1 " st $end
+$var reg 6 # mplier[5:0] $end
+$var reg 6 $ mcand[5:0] $end
+$var reg 1 % done $end
+$var reg 12 & product1[11:0] $end
+$scope module mult1 $end
+$var reg 1 ' clk $end
+$var reg 1 ( st $end
+$var reg 6 ) mplier[5:0] $end
+$var reg 6 * mcand[5:0] $end
+$var reg 1 + done $end
+$var reg 12 , product[11:0] $end
+$var integer 32 - estado_act $end
+$var integer 32 . estado_sig $end
+$var reg 14 / acu_act[13:0] $end
+$var reg 14 0 acu_sig[13:0] $end
+$var reg 1 1 load $end
+$var reg 1 2 ad $end
+$var reg 1 3 sh $end
+$var reg 7 4 suma[6:0] $end
+$var reg 6 5 acu_suma[5:0] $end
+$var reg 1 6 m $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
