@@ -21,9 +21,9 @@ architecture arch_seq_mult of sequential_multiplier is
     signal estado_act, estado_sig:  integer range 0 to 3;
     signal cnt_act, cnt_sig:        integer range 0 to N;
     signal K, M:                    std_logic;
-    signal acu_act, acu_sig:        std_logic_vector((2 * N) downto 0);
+    signal acu_act, acu_sig:        std_logic_vector((2 * N)  downto 0);
     signal Load, Ad, Sh:            std_logic;
-    signal suma:                    std_logic_vector((N+1) downto 0); -- Ajuste de longitud
+    signal suma:                    std_logic_vector(N downto 0); -- Ajuste de longitud
     signal acu_suma:                std_logic_vector(N - 1 downto 0);
 
 begin
@@ -33,7 +33,7 @@ begin
     product   <= acu_act((2 * N) - 1 downto 0);
 
     -- sumador
-    suma      <= std_logic_vector(('0' & mcand) + ('0' & acu_suma));
+    suma      <= std_logic_vector(unsigned('0' & mcand) + unsigned('0' & acu_suma));
 
     -- memoria de estado y acumulador
     process (clk)
@@ -79,10 +79,10 @@ begin
     -- acumulador
     process (Load, Sh, Ad, mplier, acu_act, suma)
     begin
+        acu_sig <= (others => '0');
         if Load = '1' then 
             -- carga multiplicador en bits menos significativos
-            -- borra bits restantes
-            acu_sig <= "00000" & mplier;
+            acu_sig (N-1 downto 0) <=  mplier;
         elsif Ad = '1' then
             -- carga la suma en los bits más significativos del acumulador
             acu_sig(N downto 1) <= suma;

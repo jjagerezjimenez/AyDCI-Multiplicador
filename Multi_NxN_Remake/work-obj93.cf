@@ -1,10 +1,10 @@
 v 4
-file . "tb_sequential_multiplier.vhd" "6d5335f982baa54d61a0a44377125ca4bbc7e51d" "20231118051435.570":
-  entity tb_sequential_multiplier at 1( 0) + 0 on 133;
-  architecture testbench of tb_sequential_multiplier at 8( 136) + 0 on 134;
-file . "sequential_multiplier.vhd" "d679778d7e79f1e64f344ba9430119378a75dad5" "20231118051435.549":
-  entity sequential_multiplier at 1( 0) + 0 on 131;
-  architecture comportamiento of sequential_multiplier at 17( 432) + 0 on 132;
+file . "tb_sequential_multiplier.vhd" "57c035bb99f0df4b0c521c2ced517da5cfb98b7a" "20231119054655.622":
+  entity tb_sequential_multiplier at 1( 0) + 0 on 169;
+  architecture testbench of tb_sequential_multiplier at 8( 143) + 0 on 170;
+file . "sequential_multiplier.vhd" "1aad9d42fec92d87915d7b765d6ca99b0e3d9d4c" "20231119054655.575":
+  entity sequential_multiplier at 1( 0) + 0 on 167;
+  architecture arch_seq_mult of sequential_multiplier at 19( 487) + 0 on 168;
 file . "mult_sec_nxn.vhd" "832b8723b6833b429f50c3c810fd2a8d2b7c5760" "20231118031823.066":
   entity mult_sec_nxn at 1( 0) + 0 on 105;
   architecture behavior of mult_sec_nxn at 17( 377) + 0 on 106;

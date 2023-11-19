@@ -1,5 +1,5 @@
 $date
-  Sat Nov 18 02:14:35 2023
+  Sun Nov 19 02:46:55 2023
 $end
 $version
   GHDL v0
@@ -20,7 +20,7 @@ $var reg 1 # done1 $end
 $var reg 6 $ mplier[5:0] $end
 $var reg 6 % mcand[5:0] $end
 $var reg 12 & product1[11:0] $end
-$scope module mult1 $end
+$scope module dut $end
 $var reg 1 ' clk $end
 $var reg 1 ( st $end
 $var reg 6 ) mplier[5:0] $end
@@ -43,3 +43,29 @@ $var reg 6 9 acu_suma[5:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
+#0
+0!
+1"
+0#
+b001011 $
+b011011 %
+bUUUUUUUUUUUU &
+0'
+1(
+b001011 )
+b011011 *
+0+
+bUUUUUUUUUUUU ,
+b0 -
+b1 .
+b0 /
+b0 0
+U1
+U2
+bUUUUUUUUUUUUU 3
+b0000000001011 4
+15
+06
+07
+bXXXXXXX 8
+bUUUUUU 9
