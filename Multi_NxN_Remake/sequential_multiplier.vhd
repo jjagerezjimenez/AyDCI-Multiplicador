@@ -47,34 +47,48 @@ begin
 
     -- controlador
     process (estado_act, st, M)
-      begin
-          Load <= '0';
-          Sh <= '0';
-          Ad <= '0';
-          done <= '0';
-          estado_sig <= estado_act;
-          
-          case estado_act is
-              when 0 => --estado inicial
-                  if  st = '1' then
-                                    Load        <= '1';
-                                    estado_sig  <= 1;
-                  end if;
+    begin
+        Load            <= '0';
+        Sh              <= '0';
+        Ad              <= '0';
+        done            <= '0';
+        estado_sig      <= estado_act;
 
-              when 1 | 2 => -- estado "add/shift"
-                  if  M = '1' then -- "add multiplicand to acc"
-                                    Ad <= '1';
-                                    estado_sig <= estado_act + 1;
-                      else 
-                          Sh <= '1';
-                          estado_sig <= estado_act + 2;
-                  end if;
+        case estado_act is
+            when 0 => --estado inicial
+                if  st = '1' then
+                                  Load        <= '1';
+                                  estado_sig  <= 1;
+                end if;
+--modificacion incorporando el contador, ex-estado "add/shift"
 
-              when 3 => -- ein del ciclo
-                    done        <= '1';
-                    estado_sig  <=  0;
+            when 1 =>       if K = '0' and M = '0' then
+                                    Sh          <= '1';
+                                    estado_sig  <=  1;
+                            elsif M = '1' then
+                                    Ad          <= '1';
+                                    estado_sig  <=  2;
+                            elsif K = '1' and M =  '0' then
+                                    Sh          <= '1';
+                                    estado_sig  <=  3;
+                            end if;
+
+            when 2 =>   Sh <= '1';
+                            if K = '0' then
+                                estado_sig      <= 1;
+                            else
+                                estado_sig      <= 3;
+                            end if;
+
+            when 3 => -- fin del ciclo
+                                done            <= '1';
+                                estado_sig      <=  0;
           end case;
     end process;
+
+    --logica contador
+    cnt_sig     <=  0 when (st = '1') else (cnt_act + 1) when (Sh = '1' and K = '0') else cnt_act;
+    K           <= '1' when (cnt_act = (N-1)) else '0';     --o menor e igual? ver
 
     -- acumulador
     process (Load, Sh, Ad, mplier, acu_act, suma)
@@ -85,7 +99,7 @@ begin
             acu_sig (N-1 downto 0) <=  mplier;
         elsif Ad = '1' then
             -- carga la suma en los bits más significativos del acumulador
-            acu_sig(N downto 1) <= suma;
+            acu_sig <= suma & acu_act((N-1) downto 0);
         elsif Sh = '1' then
             -- desplaza a derecha, completa MSB con cero
             acu_sig <= '0' & acu_act((2 * N) downto 1);
