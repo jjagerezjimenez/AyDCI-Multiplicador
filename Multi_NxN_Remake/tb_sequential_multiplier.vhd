@@ -9,11 +9,9 @@ architecture testbench of tb_sequential_multiplier is
     constant N: integer := 6;
 
     component sequential_multiplier
-
         generic (
-            N: integer := 6  -- Establece el valor predeterminado según tus necesidades
+            N: integer := 6
         );
-
         port (
             clk, st:            in std_logic;
             mplier, mcand:      in std_logic_vector(N - 1 downto 0);
@@ -23,9 +21,8 @@ architecture testbench of tb_sequential_multiplier is
     end component;
 
     type arr is array(1 to N) of std_logic_vector(N - 1 downto 0);
-    --ver
-    constant MCANDARR: arr := ("011011", "010110", "000001", "000100", "001111", "011101"); -- corregir las longitudes
-    constant MPLIERARR: arr := ("001011", "001101", "000001", "001000", "001111", "000000"); -- corregir las longitudes
+    constant MCANDARR: arr := ("011011", "010110", "000001", "000100", "001111", "011101");
+    constant MPLIERARR: arr := ("001011", "001101", "000001", "001000", "001111", "000000");
 
     signal clk:             std_logic := '0';
     signal st, done1:       std_logic;
@@ -35,28 +32,34 @@ architecture testbench of tb_sequential_multiplier is
 begin
     DUT: sequential_multiplier
           generic map(N => N)
-          port map(clk, st, mplier, mcand, done1, product1);  --controlar
+          port map(clk, st, mplier, mcand, done1, product1);
 
     clk <= not clk after 10 ns;
 
     process
-      begin
-          for i in 1 to N loop
-            --ver
-              mcand <= MCANDARR(i);
-              mplier <= MPLIERARR(i);
-              st <= '1';
+    begin
+        for i in 1 to N loop
+            mcand <= MCANDARR(i);
+            mplier <= MPLIERARR(i);
+            st <= '1';
 
-              wait until rising_edge(clk);
+            wait until rising_edge(clk);
 
-              st <= '0';
+            st <= '0';
 
-              wait until done1 = '1'; --habia conflicto
-              wait until rising_edge(clk);
+            wait until done1 = '1';
+            wait until rising_edge(clk);
 
-          end loop;
-          report "Simulación completa" severity note;
-          
-          wait;
+            -- Mensajes en la terminal
+            report "Multiplicación " & integer'image(i) & ": " &
+                   "MCAND = " & integer'image(to_integer(unsigned(mcand))) & ", " &
+                   "MPLIER = " & integer'image(to_integer(unsigned(mplier))) & ", " &
+                   "Resultado = " & integer'image(to_integer(unsigned(product1))) & ", " &
+                   "Esperado = " & integer'image(to_integer(unsigned(mplier) * unsigned(mcand)));
+        end loop;
+
+        report "Simulación completa" severity note;
+
+        wait;
     end process;
 end testbench;
