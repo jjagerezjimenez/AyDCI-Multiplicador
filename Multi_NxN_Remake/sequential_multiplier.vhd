@@ -18,7 +18,7 @@ end sequential_multiplier;
 
 architecture arch_seq_mult of sequential_multiplier is
   
-    signal estado_act, estado_sig:  integer range 0 to 3;
+    signal estado_act, estado_sig:  integer range 0 to N - 1;
     signal cnt_act, cnt_sig:        integer range 0 to N;
     signal K, M:                    std_logic;
     signal acu_act, acu_sig:        std_logic_vector((2 * N)  downto 0);
