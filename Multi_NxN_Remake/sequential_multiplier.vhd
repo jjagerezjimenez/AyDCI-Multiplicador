@@ -46,7 +46,7 @@ begin
     end process;
 
     -- controlador
-    process (estado_act, st, M)
+    process (estado_act, st, M,K)
     begin
         Load            <= '0';
         Sh              <= '0';
