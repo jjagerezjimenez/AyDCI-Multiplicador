@@ -1,4 +1,4 @@
-module sequential_multiplier
+module sequential_multiplier_32x32
   (input  clk,
    input  st,
    input  [31:0] mplier,
@@ -77,88 +77,88 @@ module sequential_multiplier
   wire [64:0] n117_o;
   assign done = n63_o;
   assign product = n4_o;
-  /* src/sequential_multiplier.vhd:21:12  */
+  /* src/sequential_multiplier_32x32.vhd:21:12  */
   assign estado_act = n114_q; // (signal)
-  /* src/sequential_multiplier.vhd:21:24  */
+  /* src/sequential_multiplier_32x32.vhd:21:24  */
   assign estado_sig = n67_o; // (signal)
-  /* src/sequential_multiplier.vhd:22:12  */
+  /* src/sequential_multiplier_32x32.vhd:22:12  */
   assign cnt_act = n115_q; // (signal)
-  /* src/sequential_multiplier.vhd:22:21  */
+  /* src/sequential_multiplier_32x32.vhd:22:21  */
   assign cnt_sig = n83_o; // (signal)
-  /* src/sequential_multiplier.vhd:23:12  */
+  /* src/sequential_multiplier_32x32.vhd:23:12  */
   assign k = n95_o; // (signal)
-  /* src/sequential_multiplier.vhd:23:15  */
+  /* src/sequential_multiplier_32x32.vhd:23:15  */
   assign m = n2_o; // (signal)
-  /* src/sequential_multiplier.vhd:24:12  */
+  /* src/sequential_multiplier_32x32.vhd:24:12  */
   assign acu_act = n116_q; // (signal)
-  /* src/sequential_multiplier.vhd:24:21  */
+  /* src/sequential_multiplier_32x32.vhd:24:21  */
   assign acu_sig = n117_o; // (signal)
-  /* src/sequential_multiplier.vhd:25:12  */
+  /* src/sequential_multiplier_32x32.vhd:25:12  */
   assign load = n70_o; // (signal)
-  /* src/sequential_multiplier.vhd:25:18  */
+  /* src/sequential_multiplier_32x32.vhd:25:18  */
   assign ad = n74_o; // (signal)
-  /* src/sequential_multiplier.vhd:25:22  */
+  /* src/sequential_multiplier_32x32.vhd:25:22  */
   assign sh = n79_o; // (signal)
-  /* src/sequential_multiplier.vhd:26:12  */
+  /* src/sequential_multiplier_32x32.vhd:26:12  */
   assign suma = n9_o; // (signal)
-  /* src/sequential_multiplier.vhd:27:12  */
+  /* src/sequential_multiplier_32x32.vhd:27:12  */
   assign acu_suma = n3_o; // (signal)
-  /* src/sequential_multiplier.vhd:31:25  */
+  /* src/sequential_multiplier_32x32.vhd:31:25  */
   assign n2_o = acu_act[0];
-  /* src/sequential_multiplier.vhd:32:25  */
+  /* src/sequential_multiplier_32x32.vhd:32:25  */
   assign n3_o = acu_act[63:32];
-  /* src/sequential_multiplier.vhd:33:25  */
+  /* src/sequential_multiplier_32x32.vhd:33:25  */
   assign n4_o = acu_act[63:0];
-  /* src/sequential_multiplier.vhd:36:48  */
+  /* src/sequential_multiplier_32x32.vhd:36:48  */
   assign n6_o = {1'b0, mcand};
-  /* src/sequential_multiplier.vhd:36:72  */
+  /* src/sequential_multiplier_32x32.vhd:36:72  */
   assign n8_o = {1'b0, acu_suma};
-  /* src/sequential_multiplier.vhd:36:57  */
+  /* src/sequential_multiplier_32x32.vhd:36:57  */
   assign n9_o = n6_o + n8_o;
-  /* src/sequential_multiplier.vhd:59:17  */
+  /* src/sequential_multiplier_32x32.vhd:59:17  */
   assign n20_o = st ? 5'b00001 : estado_act;
-  /* src/sequential_multiplier.vhd:59:17  */
+  /* src/sequential_multiplier_32x32.vhd:59:17  */
   assign n23_o = st ? 1'b1 : 1'b0;
-  /* src/sequential_multiplier.vhd:58:13  */
+  /* src/sequential_multiplier_32x32.vhd:58:13  */
   assign n25_o = estado_act == 5'b00000;
-  /* src/sequential_multiplier.vhd:65:34  */
+  /* src/sequential_multiplier_32x32.vhd:65:34  */
   assign n26_o = ~k;
-  /* src/sequential_multiplier.vhd:65:46  */
+  /* src/sequential_multiplier_32x32.vhd:65:46  */
   assign n27_o = ~m;
-  /* src/sequential_multiplier.vhd:65:40  */
+  /* src/sequential_multiplier_32x32.vhd:65:40  */
   assign n28_o = n27_o & n26_o;
-  /* src/sequential_multiplier.vhd:71:49  */
+  /* src/sequential_multiplier_32x32.vhd:71:49  */
   assign n29_o = ~m;
-  /* src/sequential_multiplier.vhd:71:43  */
+  /* src/sequential_multiplier_32x32.vhd:71:43  */
   assign n30_o = n29_o & k;
-  /* src/sequential_multiplier.vhd:71:29  */
+  /* src/sequential_multiplier_32x32.vhd:71:29  */
   assign n32_o = n30_o ? 5'b00011 : estado_act;
-  /* src/sequential_multiplier.vhd:71:29  */
+  /* src/sequential_multiplier_32x32.vhd:71:29  */
   assign n35_o = n30_o ? 1'b1 : 1'b0;
-  /* src/sequential_multiplier.vhd:68:29  */
+  /* src/sequential_multiplier_32x32.vhd:68:29  */
   assign n37_o = m ? 5'b00010 : n32_o;
-  /* src/sequential_multiplier.vhd:68:29  */
+  /* src/sequential_multiplier_32x32.vhd:68:29  */
   assign n40_o = m ? 1'b1 : 1'b0;
-  /* src/sequential_multiplier.vhd:68:29  */
+  /* src/sequential_multiplier_32x32.vhd:68:29  */
   assign n42_o = m ? 1'b0 : n35_o;
-  /* src/sequential_multiplier.vhd:65:29  */
+  /* src/sequential_multiplier_32x32.vhd:65:29  */
   assign n44_o = n28_o ? 5'b00001 : n37_o;
-  /* src/sequential_multiplier.vhd:65:29  */
+  /* src/sequential_multiplier_32x32.vhd:65:29  */
   assign n46_o = n28_o ? 1'b0 : n40_o;
-  /* src/sequential_multiplier.vhd:65:29  */
+  /* src/sequential_multiplier_32x32.vhd:65:29  */
   assign n48_o = n28_o ? 1'b1 : n42_o;
-  /* src/sequential_multiplier.vhd:65:13  */
+  /* src/sequential_multiplier_32x32.vhd:65:13  */
   assign n50_o = estado_act == 5'b00001;
-  /* src/sequential_multiplier.vhd:77:34  */
+  /* src/sequential_multiplier_32x32.vhd:77:34  */
   assign n51_o = ~k;
-  /* src/sequential_multiplier.vhd:77:29  */
+  /* src/sequential_multiplier_32x32.vhd:77:29  */
   assign n54_o = n51_o ? 5'b00001 : 5'b00011;
-  /* src/sequential_multiplier.vhd:76:13  */
+  /* src/sequential_multiplier_32x32.vhd:76:13  */
   assign n56_o = estado_act == 5'b00010;
-  /* src/sequential_multiplier.vhd:83:13  */
+  /* src/sequential_multiplier_32x32.vhd:83:13  */
   assign n58_o = estado_act == 5'b00011;
   assign n59_o = {n58_o, n56_o, n50_o, n25_o};
-  /* src/sequential_multiplier.vhd:57:9  */
+  /* src/sequential_multiplier_32x32.vhd:57:9  */
   always @*
     case (n59_o)
       4'b1000: n63_o = 1'b1;
@@ -167,7 +167,7 @@ module sequential_multiplier
       4'b0001: n63_o = 1'b0;
       default: n63_o = 1'bX;
     endcase
-  /* src/sequential_multiplier.vhd:57:9  */
+  /* src/sequential_multiplier_32x32.vhd:57:9  */
   always @*
     case (n59_o)
       4'b1000: n67_o = 5'b00000;
@@ -176,7 +176,7 @@ module sequential_multiplier
       4'b0001: n67_o = n20_o;
       default: n67_o = 5'bX;
     endcase
-  /* src/sequential_multiplier.vhd:57:9  */
+  /* src/sequential_multiplier_32x32.vhd:57:9  */
   always @*
     case (n59_o)
       4'b1000: n70_o = 1'b0;
@@ -185,7 +185,7 @@ module sequential_multiplier
       4'b0001: n70_o = n23_o;
       default: n70_o = 1'bX;
     endcase
-  /* src/sequential_multiplier.vhd:57:9  */
+  /* src/sequential_multiplier_32x32.vhd:57:9  */
   always @*
     case (n59_o)
       4'b1000: n74_o = 1'b0;
@@ -194,7 +194,7 @@ module sequential_multiplier
       4'b0001: n74_o = 1'b0;
       default: n74_o = 1'bX;
     endcase
-  /* src/sequential_multiplier.vhd:57:9  */
+  /* src/sequential_multiplier_32x32.vhd:57:9  */
   always @*
     case (n59_o)
       4'b1000: n79_o = 1'b0;
@@ -203,54 +203,54 @@ module sequential_multiplier
       4'b0001: n79_o = 1'b0;
       default: n79_o = 1'bX;
     endcase
-  /* src/sequential_multiplier.vhd:90:23  */
+  /* src/sequential_multiplier_32x32.vhd:90:23  */
   assign n83_o = st ? 6'b000000 : n90_o;
-  /* src/sequential_multiplier.vhd:90:53  */
+  /* src/sequential_multiplier_32x32.vhd:90:53  */
   assign n84_o = {26'b0, cnt_act};  //  uext
-  /* src/sequential_multiplier.vhd:90:53  */
+  /* src/sequential_multiplier_32x32.vhd:90:53  */
   assign n86_o = n84_o + 32'b00000000000000000000000000000001;
-  /* src/sequential_multiplier.vhd:90:44  */
+  /* src/sequential_multiplier_32x32.vhd:90:44  */
   assign n87_o = n86_o[5:0];  // trunc
-  /* src/sequential_multiplier.vhd:90:79  */
+  /* src/sequential_multiplier_32x32.vhd:90:79  */
   assign n88_o = ~k;
-  /* src/sequential_multiplier.vhd:90:73  */
+  /* src/sequential_multiplier_32x32.vhd:90:73  */
   assign n89_o = n88_o & sh;
-  /* src/sequential_multiplier.vhd:90:39  */
+  /* src/sequential_multiplier_32x32.vhd:90:39  */
   assign n90_o = n89_o ? n87_o : cnt_act;
-  /* src/sequential_multiplier.vhd:91:38  */
+  /* src/sequential_multiplier_32x32.vhd:91:38  */
   assign n92_o = {26'b0, cnt_act};  //  uext
-  /* src/sequential_multiplier.vhd:91:38  */
+  /* src/sequential_multiplier_32x32.vhd:91:38  */
   assign n94_o = n92_o == 32'b00000000000000000000000000011111;
-  /* src/sequential_multiplier.vhd:91:24  */
+  /* src/sequential_multiplier_32x32.vhd:91:24  */
   assign n95_o = n94_o ? 1'b1 : 1'b0;
-  /* src/sequential_multiplier.vhd:102:38  */
+  /* src/sequential_multiplier_32x32.vhd:102:38  */
   assign n99_o = acu_act[31:0];
-  /* src/sequential_multiplier.vhd:102:29  */
+  /* src/sequential_multiplier_32x32.vhd:102:29  */
   assign n100_o = {suma, n99_o};
-  /* src/sequential_multiplier.vhd:105:37  */
+  /* src/sequential_multiplier_32x32.vhd:105:37  */
   assign n101_o = acu_act[64:1];
-  /* src/sequential_multiplier.vhd:105:28  */
+  /* src/sequential_multiplier_32x32.vhd:105:28  */
   assign n103_o = {1'b0, n101_o};
-  /* src/sequential_multiplier.vhd:103:9  */
+  /* src/sequential_multiplier_32x32.vhd:103:9  */
   assign n104_o = sh ? n103_o : acu_act;
-  /* src/sequential_multiplier.vhd:100:9  */
+  /* src/sequential_multiplier_32x32.vhd:100:9  */
   assign n105_o = ad ? n100_o : n104_o;
   assign n106_o = n105_o[31:0];
-  /* src/sequential_multiplier.vhd:97:9  */
+  /* src/sequential_multiplier_32x32.vhd:97:9  */
   assign n107_o = load ? mplier : n106_o;
   assign n108_o = n105_o[64:32];
-  /* src/sequential_multiplier.vhd:97:9  */
+  /* src/sequential_multiplier_32x32.vhd:97:9  */
   assign n110_o = load ? 33'b000000000000000000000000000000000 : n108_o;
-  /* src/sequential_multiplier.vhd:41:11  */
+  /* src/sequential_multiplier_32x32.vhd:41:11  */
   always @(posedge clk)
     n114_q <= estado_sig;
-  /* src/sequential_multiplier.vhd:41:11  */
+  /* src/sequential_multiplier_32x32.vhd:41:11  */
   always @(posedge clk)
     n115_q <= cnt_sig;
-  /* src/sequential_multiplier.vhd:41:11  */
+  /* src/sequential_multiplier_32x32.vhd:41:11  */
   always @(posedge clk)
     n116_q <= acu_sig;
-  /* src/sequential_multiplier.vhd:41:11  */
+  /* src/sequential_multiplier_32x32.vhd:41:11  */
   assign n117_o = {n110_o, n107_o};
 endmodule
 
