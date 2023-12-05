@@ -1,0 +1,516 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= Typical Corner ===================================
+
+Startpoint: mcand[3] (input port clocked by clk)
+Endpoint: _497_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          2.00    2.00 v input external delay
+                  0.01    0.00    2.00 v mcand[3] (in)
+     1    0.00                           mcand[3] (net)
+                  0.01    0.00    2.00 v input10/A (sky130_fd_sc_hd__clkbuf_2)
+                  0.03    0.09    2.10 v input10/X (sky130_fd_sc_hd__clkbuf_2)
+     3    0.01                           net10 (net)
+                  0.03    0.00    2.10 v _296_/B (sky130_fd_sc_hd__or2_1)
+                  0.05    0.20    2.30 v _296_/X (sky130_fd_sc_hd__or2_1)
+     1    0.00                           _090_ (net)
+                  0.05    0.00    2.30 v _297_/A3 (sky130_fd_sc_hd__a31o_1)
+                  0.03    0.22    2.51 v _297_/X (sky130_fd_sc_hd__a31o_1)
+     1    0.00                           _091_ (net)
+                  0.03    0.00    2.51 v _298_/B1 (sky130_fd_sc_hd__a31o_1)
+                  0.07    0.22    2.73 v _298_/X (sky130_fd_sc_hd__a31o_1)
+     4    0.01                           _092_ (net)
+                  0.07    0.00    2.73 v _337_/A1 (sky130_fd_sc_hd__a21oi_1)
+                  0.15    0.16    2.90 ^ _337_/Y (sky130_fd_sc_hd__a21oi_1)
+     2    0.00                           _127_ (net)
+                  0.15    0.00    2.90 ^ _340_/A (sky130_fd_sc_hd__nor2_1)
+                  0.07    0.10    2.99 v _340_/Y (sky130_fd_sc_hd__nor2_1)
+     4    0.01                           _130_ (net)
+                  0.07    0.00    2.99 v _357_/B1 (sky130_fd_sc_hd__o221a_1)
+                  0.08    0.28    3.27 v _357_/X (sky130_fd_sc_hd__o221a_1)
+     4    0.01                           _145_ (net)
+                  0.08    0.00    3.27 v _377_/B1 (sky130_fd_sc_hd__o221a_2)
+                  0.07    0.30    3.57 v _377_/X (sky130_fd_sc_hd__o221a_2)
+     5    0.01                           _163_ (net)
+                  0.07    0.00    3.57 v _399_/B1 (sky130_fd_sc_hd__o221a_1)
+                  0.07    0.26    3.84 v _399_/X (sky130_fd_sc_hd__o221a_1)
+     4    0.01                           _183_ (net)
+                  0.07    0.00    3.84 v _414_/B (sky130_fd_sc_hd__or3b_1)
+                  0.06    0.36    4.20 v _414_/X (sky130_fd_sc_hd__or3b_1)
+     1    0.00                           _196_ (net)
+                  0.06    0.00    4.20 v _415_/A3 (sky130_fd_sc_hd__a32o_1)
+                  0.04    0.26    4.45 v _415_/X (sky130_fd_sc_hd__a32o_1)
+     1    0.00                           _197_ (net)
+                  0.04    0.00    4.45 v _416_/B (sky130_fd_sc_hd__and2_1)
+                  0.03    0.15    4.60 v _416_/X (sky130_fd_sc_hd__and2_1)
+     1    0.00                           _198_ (net)
+                  0.03    0.00    4.60 v _417_/A (sky130_fd_sc_hd__clkbuf_1)
+                  0.02    0.08    4.68 v _417_/X (sky130_fd_sc_hd__clkbuf_1)
+     1    0.00                           _018_ (net)
+                  0.02    0.00    4.68 v _497_/D (sky130_fd_sc_hd__dfxtp_1)
+                                  4.68   data arrival time
+
+                         10.00   10.00   clock clk (rise edge)
+                          0.00   10.00   clock source latency
+                  0.04    0.03   10.03 ^ clk (in)
+     1    0.01                           clk (net)
+                  0.04    0.00   10.03 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+                  0.05    0.13   10.15 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+     4    0.03                           clknet_0_clk (net)
+                  0.05    0.00   10.15 ^ clkbuf_2_2__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+                  0.05    0.13   10.28 ^ clkbuf_2_2__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+    14    0.03                           clknet_2_2__leaf_clk (net)
+                  0.05    0.00   10.28 ^ _497_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                         -0.25   10.03   clock uncertainty
+                          0.00   10.03   clock reconvergence pessimism
+                         -0.10    9.93   library setup time
+                                  9.93   data required time
+-----------------------------------------------------------------------------
+                                  9.93   data required time
+                                 -4.68   data arrival time
+-----------------------------------------------------------------------------
+                                  5.25   slack (MET)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= Typical Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= Typical Corner ===================================
+
+max fanout
+
+Pin                                   Limit Fanout  Slack
+---------------------------------------------------------
+clkbuf_2_2__f_clk/X                      10     14     -4 (VIOLATED)
+
+
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 396 unannotated drivers.
+ clk
+ mcand[0]
+ mcand[10]
+ mcand[11]
+ mcand[12]
+ mcand[13]
+ mcand[14]
+ mcand[15]
+ mcand[1]
+ mcand[2]
+ mcand[3]
+ mcand[4]
+ mcand[5]
+ mcand[6]
+ mcand[7]
+ mcand[8]
+ mcand[9]
+ mplier[0]
+ mplier[10]
+ mplier[11]
+ mplier[12]
+ mplier[13]
+ mplier[14]
+ mplier[15]
+ mplier[1]
+ mplier[2]
+ mplier[3]
+ mplier[4]
+ mplier[5]
+ mplier[6]
+ mplier[7]
+ mplier[8]
+ mplier[9]
+ st
+ _239_/Y
+ _240_/Y
+ _241_/X
+ _242_/Y
+ _243_/Y
+ _244_/Y
+ _245_/X
+ _246_/Y
+ _247_/X
+ _248_/Y
+ _249_/Y
+ _250_/Y
+ _251_/Y
+ _252_/X
+ _253_/X
+ _254_/X
+ _255_/X
+ _256_/X
+ _257_/X
+ _258_/X
+ _259_/X
+ _260_/X
+ _261_/Y
+ _262_/X
+ _263_/X
+ _264_/X
+ _265_/Y
+ _266_/X
+ _267_/X
+ _268_/X
+ _269_/Y
+ _270_/X
+ _271_/X
+ _272_/Y
+ _273_/Y
+ _274_/Y
+ _275_/X
+ _276_/Y
+ _277_/X
+ _278_/Y
+ _279_/X
+ _280_/X
+ _281_/X
+ _282_/X
+ _283_/Y
+ _284_/X
+ _285_/Y
+ _286_/Y
+ _287_/X
+ _288_/Y
+ _289_/X
+ _290_/X
+ _291_/X
+ _292_/X
+ _293_/X
+ _294_/Y
+ _295_/Y
+ _296_/X
+ _297_/X
+ _298_/X
+ _299_/Y
+ _300_/X
+ _301_/X
+ _302_/X
+ _303_/X
+ _304_/X
+ _305_/X
+ _306_/X
+ _307_/X
+ _308_/X
+ _309_/X
+ _310_/X
+ _311_/X
+ _312_/X
+ _313_/X
+ _314_/Y
+ _315_/Y
+ _316_/X
+ _317_/X
+ _318_/X
+ _319_/X
+ _320_/X
+ _321_/Y
+ _322_/Y
+ _323_/Y
+ _324_/Y
+ _325_/X
+ _326_/X
+ _327_/X
+ _328_/X
+ _329_/X
+ _330_/X
+ _331_/X
+ _332_/X
+ _333_/X
+ _334_/Y
+ _335_/Y
+ _336_/X
+ _337_/Y
+ _338_/Y
+ _339_/Y
+ _340_/Y
+ _341_/Y
+ _342_/X
+ _343_/X
+ _344_/X
+ _345_/X
+ _346_/X
+ _347_/Y
+ _348_/Y
+ _349_/X
+ _350_/X
+ _351_/X
+ _352_/X
+ _353_/X
+ _354_/X
+ _355_/X
+ _356_/X
+ _357_/X
+ _358_/Y
+ _359_/X
+ _360_/X
+ _361_/X
+ _362_/X
+ _363_/X
+ _364_/Y
+ _365_/Y
+ _366_/X
+ _367_/X
+ _368_/X
+ _369_/X
+ _370_/Y
+ _371_/X
+ _372_/X
+ _373_/Y
+ _374_/X
+ _375_/X
+ _376_/X
+ _377_/X
+ _378_/Y
+ _379_/X
+ _380_/X
+ _381_/X
+ _382_/X
+ _383_/X
+ _384_/Y
+ _385_/Y
+ _386_/X
+ _387_/Y
+ _388_/Y
+ _389_/X
+ _390_/Y
+ _391_/Y
+ _392_/X
+ _393_/Y
+ _394_/Y
+ _395_/Y
+ _396_/X
+ _397_/Y
+ _398_/X
+ _399_/X
+ _400_/Y
+ _401_/X
+ _402_/Y
+ _403_/X
+ _404_/X
+ _405_/Y
+ _406_/X
+ _407_/Y
+ _408_/X
+ _409_/X
+ _410_/Y
+ _411_/X
+ _412_/Y
+ _413_/Y
+ _414_/X
+ _415_/X
+ _416_/X
+ _417_/X
+ _418_/X
+ _419_/X
+ _420_/X
+ _421_/X
+ _422_/X
+ _423_/X
+ _424_/X
+ _425_/X
+ _426_/X
+ _427_/X
+ _428_/X
+ _429_/X
+ _430_/X
+ _431_/X
+ _432_/X
+ _433_/X
+ _434_/X
+ _435_/X
+ _436_/X
+ _437_/X
+ _438_/X
+ _439_/X
+ _440_/X
+ _441_/X
+ _442_/X
+ _443_/X
+ _444_/X
+ _445_/X
+ _446_/X
+ _447_/X
+ _448_/X
+ _449_/X
+ _450_/X
+ _451_/X
+ _452_/X
+ _453_/X
+ _454_/X
+ _455_/X
+ _456_/X
+ _457_/X
+ _458_/X
+ _459_/X
+ _460_/X
+ _461_/X
+ _462_/X
+ _463_/X
+ _464_/X
+ _465_/X
+ _466_/Y
+ _467_/X
+ _468_/Y
+ _469_/X
+ _470_/Y
+ _471_/X
+ _472_/X
+ _473_/Y
+ _474_/X
+ _475_/Y
+ _476_/X
+ _477_/X
+ _478_/X
+ _479_/Q
+ _480_/Q
+ _481_/Q
+ _482_/Q
+ _483_/Q
+ _484_/Q
+ _485_/Q
+ _486_/Q
+ _487_/Q
+ _488_/Q
+ _489_/Q
+ _490_/Q
+ _491_/Q
+ _492_/Q
+ _493_/Q
+ _494_/Q
+ _495_/Q
+ _496_/Q
+ _497_/Q
+ _498_/Q
+ _499_/Q
+ _500_/Q
+ _501_/Q
+ _502_/Q
+ _503_/Q
+ _504_/Q
+ _505_/Q
+ _506_/Q
+ _507_/Q
+ _508_/Q
+ _509_/Q
+ _510_/Q
+ _511_/Q
+ _512_/Q
+ _513_/Q
+ _514_/Q
+ _515_/Q
+ _516_/Q
+ _517_/Q
+ _518_/Q
+ clkbuf_0_clk/X
+ clkbuf_2_0__f_clk/X
+ clkbuf_2_1__f_clk/X
+ clkbuf_2_2__f_clk/X
+ clkbuf_2_3__f_clk/X
+ hold1/X
+ hold10/X
+ hold11/X
+ hold2/X
+ hold3/X
+ hold4/X
+ hold5/X
+ hold6/X
+ hold7/X
+ hold8/X
+ hold9/X
+ input1/X
+ input10/X
+ input11/X
+ input12/X
+ input13/X
+ input14/X
+ input15/X
+ input16/X
+ input17/X
+ input18/X
+ input19/X
+ input2/X
+ input20/X
+ input21/X
+ input22/X
+ input23/X
+ input24/X
+ input25/X
+ input26/X
+ input27/X
+ input28/X
+ input29/X
+ input3/X
+ input30/X
+ input31/X
+ input32/X
+ input33/X
+ input4/X
+ input5/X
+ input6/X
+ input7/X
+ input8/X
+ input9/X
+ output34/X
+ output35/X
+ output36/X
+ output37/X
+ output38/X
+ output39/X
+ output40/X
+ output41/X
+ output42/X
+ output43/X
+ output44/X
+ output45/X
+ output46/X
+ output47/X
+ output48/X
+ output49/X
+ output50/X
+ output51/X
+ output52/X
+ output53/X
+ output54/X
+ output55/X
+ output56/X
+ output57/X
+ output58/X
+ output59/X
+ output60/X
+ output61/X
+ output62/X
+ output63/X
+ output64/X
+ output65/X
+ output66/X
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 0
+max fanout violation count 1
+max cap violation count 0
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================

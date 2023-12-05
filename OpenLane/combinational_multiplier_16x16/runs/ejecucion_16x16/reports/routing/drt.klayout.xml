@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<report-database>
+    <categories/>
+    <cells>
+        <cell>
+            <name>combinational_multiplier_16x16</name>
+        </cell>
+    </cells>
+    <items/>
+</report-database>

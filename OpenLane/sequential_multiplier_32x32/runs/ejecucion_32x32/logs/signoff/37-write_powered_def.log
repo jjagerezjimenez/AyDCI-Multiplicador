@@ -1,0 +1,21 @@
+OpenROAD 0cfb9a45bfb256c9af1a0500d4c97da0f145f54f 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /openlane/designs/sequential_multiplier_32x32/runs/ejecucion_32x32/tmp/merged.nom.lef
+[INFO ODB-0223]     Created 13 technology layers
+[INFO ODB-0224]     Created 25 technology vias
+[INFO ODB-0225]     Created 442 library cells
+[INFO ODB-0226] Finished LEF file:  /openlane/designs/sequential_multiplier_32x32/runs/ejecucion_32x32/tmp/merged.nom.lef
+[INFO ODB-0127] Reading DEF file: /openlane/designs/sequential_multiplier_32x32/runs/ejecucion_32x32/results/routing/sequential_multiplier_32x32.def
+[INFO ODB-0128] Design: sequential_multiplier_32x32
+[INFO ODB-0130]     Created 133 pins.
+[INFO ODB-0131]     Created 11027 components and 43414 component-terminals.
+[INFO ODB-0132]     Created 2 special nets and 41228 connections.
+[INFO ODB-0133]     Created 740 nets and 2186 connections.
+[INFO ODB-0134] Finished DEF file: /openlane/designs/sequential_multiplier_32x32/runs/ejecucion_32x32/results/routing/sequential_multiplier_32x32.def
+Top-level design name: sequential_multiplier_32x32
+Found default power net 'VPWR'
+Found default ground net 'VGND'
+Found 1 power ports.
+Found 1 ground ports.
+Modified power connections of 11027/11027 cells.

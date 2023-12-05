@@ -1,0 +1,19 @@
+Design Name: combinational_multiplier_16x16
+Run Directory: /openlane/designs/combinational_multiplier_16x16/runs/ejecucion_16x16
+----------------------------------------
+
+Magic DRC Summary:
+Source: /openlane/designs/combinational_multiplier_16x16/runs/ejecucion_16x16/reports/signoff/drc.rpt
+Total Magic DRC violations is 0
+----------------------------------------
+
+LVS Summary:
+Source: /openlane/designs/combinational_multiplier_16x16/runs/ejecucion_16x16/logs/signoff/39-combinational_multiplier_16x16.lef.lvs.log
+Number of nets: 1528                       |Number of nets: 1528                       
+Design is LVS clean.
+----------------------------------------
+
+Antenna Summary:
+Source: /openlane/designs/combinational_multiplier_16x16/runs/ejecucion_16x16/logs/signoff/41-arc.log
+Pin violations: 9
+Net violations: 9

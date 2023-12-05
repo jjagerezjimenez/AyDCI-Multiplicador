@@ -1,0 +1,6 @@
+<< properties >>
+string FIXED_BBOX 0 0 212642 214786
+string GDS_END 28163542
+string GDS_FILE /openlane/designs/combinational_multiplier_32x32/runs/ejecucion_32x32/results/signoff/combinational_multiplier_32x32.magic.gds
+string GDS_START 1245580
+<< end >>

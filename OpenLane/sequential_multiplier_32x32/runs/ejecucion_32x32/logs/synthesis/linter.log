@@ -1,0 +1,6 @@
+%Warning-UNUSEDSIGNAL: /openlane/designs/sequential_multiplier_32x32/src/sequential_multiplier_32x32.v:56:15: Bits of signal are not used: 'n86_o'[31:6]
+                                                                                                            : ... In instance sequential_multiplier_32x32
+   56 |   wire [31:0] n86_o;
+      |               ^~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.009
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.

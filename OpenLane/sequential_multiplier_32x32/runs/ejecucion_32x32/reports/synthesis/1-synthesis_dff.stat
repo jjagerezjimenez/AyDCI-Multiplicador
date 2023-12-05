@@ -1,0 +1,25 @@
+
+53. Printing statistics.
+
+=== sequential_multiplier_32x32 ===
+
+   Number of wires:                434
+   Number of wire bits:            795
+   Number of public wires:          16
+   Number of public wire bits:     377
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                567
+     $_ANDNOT_                     100
+     $_AND_                         19
+     $_MUX_                        178
+     $_NAND_                        22
+     $_NOR_                         35
+     $_NOT_                          6
+     $_ORNOT_                       12
+     $_OR_                          53
+     $_XNOR_                        34
+     $_XOR_                         35
+     sky130_fd_sc_hd__dfxtp_2       73
+
